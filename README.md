@@ -1,25 +1,85 @@
-# UEES UCOM0310 — Semana 7 — Proyecto base Ae6
+Diseño de Software UCOM0310_Semana7_Ae6_Suite_Cobertura_PR
 
-Proyecto base para las actividades individuales de Semana 7.
+## Información general
 
-## Requisitos
-- Java 21
-- Maven 3.9+
-- Git
+- **Universidad:** Universidad Espíritu Santo
+- **Carrera:** Computación
+- **Asignatura:** Diseño de Software
+- **Código:** UCOM0310
+- **Periodo:** PEL 4 - 2026
+- **Estudiante:** Santiago Campoverde
+- **Docente:** Ph.D. Jaime Paul Sayago Heredia
 
-## Verificación inicial
-```bash
-mvn clean test
-```
+## Descripcion y Objetivos
+
+Ae6 es la actividad evaluativa integradora de la Semana 7. En esta actividad deberán aplicar de manera conjunta los conocimientos trabajados sobre diseño de casos de prueba, JUnit 5, estructura AAA, Stub y Mock, cobertura con JaCoCo, ramas Git, commits y Pull Request.
+
+Proteger las reglas críticas del módulo de reservas.
+
+## Cambios
+ 
+- Casos normales
+- Casos límite
+- Casos inválidos
+- Excepciones
+- Stub y Mock
+- Cobertura JaCoCo
 
 ## Cobertura
-```bash
+ 
+Se cubrieron los métodos:
+- puedeCancelar
+- calcularTotal
+- confirmar
+ 
+## Limitaciones
+ 
+No se probaron integraciones reales.
+
+## Tecnologías
+
+- Java 21
+- Apache Maven 3.9.x
+- Git y GitHub
+- PlantUML
+
+## Requisitos previos
+
+- JDK 21 instalado
+- Maven disponible en PATH
+- Git configurado
+
+## Enlace GitHub
+
+https://github.com/scampoverde/semana7-Ae6_Suite_Cobertura_PR.git
+
+## Compilar y Ejecutar Pruebas
+
+mvn clean compile
 mvn clean test
-```
 
-Luego abrir:
-`target/site/jacoco/index.html`
+## Matriz de casos
 
-## Regla de trabajo
-No modifiques el código productivo solo para hacer pasar una prueba sin justificar el cambio.
-Primero diseña el caso, luego implementa la prueba y finalmente interpreta el resultado.
+ID	Método	Escenario	Entrada	Esperado	Tipo
+CP-01	puedeCancelar	Normal	5	true	Normal
+CP-02	puedeCancelar	Límite	2	true	Límite
+CP-03	puedeCancelar	Debajo límite	1	false	Límite
+CP-04	calcularTotal	VIP	VIP,100	85	Alternativo
+CP-05	calcularTotal	Negativo	NORMAL,-1	Excepción	Inválido
+CP-06	confirmar	Disponible	R-001 + true	CONFIRMADA	Normal
+CP-07	confirmar	No disponible	R-002 + false	Excepción	Alternativo
+
+## Evidencia
+
+REGLA DE NEGOCIO → MATRIZ DE CASOS → JUNIT 5 → STUB/MOCK → EJECUCIÓN → JACOCO → GIT → PULL REQUEST → AUTORREVISIÓN → EVIDENCIA FINAL
+
+## Uso de inteligencia artificial
+
+Durante el desarrollo de esta actividad utilicé COPILOT.
+La utilicé para asistencia de la elaboración del documento y realización del código.
+Verifiqué y adapté las respuestas obtenidas, puedo explicar el código y las decisiones presentadas.
+
+## Autor
+
+SANTIAGO CAMPOVERDE
+santiago.campoverde@uees.edu.ec
