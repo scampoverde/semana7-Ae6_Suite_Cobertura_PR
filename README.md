@@ -36,11 +36,17 @@ https://github.com/scampoverde/semana7-Ae6_Suite_Cobertura_PR.git
 mvn clean compile
 mvn clean test
 
-## Refactorizaciones Aplicadas
+## Matriz de casos
 
-1. Guard Clauses
-2. Value Object Email
-3. Move Method
+ID	Método	Escenario	Entrada	Esperado	Tipo
+CP-01	puedeCancelar	Normal	5	true	Normal
+CP-02	puedeCancelar	Límite	2	true	Límite
+CP-03	puedeCancelar	Debajo límite	1	false	Límite
+CP-04	calcularTotal	VIP	VIP,100	85	Alternativo
+CP-05	calcularTotal	Negativo	NORMAL,-1	Excepción	Inválido
+CP-06	confirmar	Disponible	R-001 + true	CONFIRMADA	Normal
+CP-07	confirmar	No disponible	R-002 + false	Excepción	Alternativo
+
 
 ## Evidencia
 
