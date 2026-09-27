@@ -14,6 +14,28 @@ Diseño de Software UCOM0310_Semana7_Ae6_Suite_Cobertura_PR
 
 Ae6 es la actividad evaluativa integradora de la Semana 7. En esta actividad deberán aplicar de manera conjunta los conocimientos trabajados sobre diseño de casos de prueba, JUnit 5, estructura AAA, Stub y Mock, cobertura con JaCoCo, ramas Git, commits y Pull Request.
 
+Proteger las reglas críticas del módulo de reservas.
+
+## Cambios
+ 
+- Casos normales
+- Casos límite
+- Casos inválidos
+- Excepciones
+- Stub y Mock
+- Cobertura JaCoCo
+
+## Cobertura
+ 
+Se cubrieron los métodos:
+- puedeCancelar
+- calcularTotal
+- confirmar
+ 
+## Limitaciones
+ 
+No se probaron integraciones reales.
+
 ## Tecnologías
 
 - Java 21
@@ -23,9 +45,9 @@ Ae6 es la actividad evaluativa integradora de la Semana 7. En esta actividad deb
 
 ## Requisitos previos
 
-- JDK 21 instalado.
-- Maven disponible en PATH.
-- Git configurado.
+- JDK 21 instalado
+- Maven disponible en PATH
+- Git configurado
 
 ## Enlace GitHub
 
@@ -46,7 +68,6 @@ CP-04	calcularTotal	VIP	VIP,100	85	Alternativo
 CP-05	calcularTotal	Negativo	NORMAL,-1	Excepción	Inválido
 CP-06	confirmar	Disponible	R-001 + true	CONFIRMADA	Normal
 CP-07	confirmar	No disponible	R-002 + false	Excepción	Alternativo
-
 
 ## Evidencia
 
