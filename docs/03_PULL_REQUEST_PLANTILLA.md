@@ -2,24 +2,30 @@
 
 ## Objetivo
 
-## Cambios realizados
-- 
-- 
-- 
+Proteger las reglas críticas del sistema de reservas mediante una suite de pruebas automatizadas con JUnit 5.
 
-## Casos de prueba
-- 
-- 
-- 
+## Cambios realizados
+ 
+Casos normales
+- Casos límite
+- Casos inválidos
+- Excepciones
+- Uso de Stub y Mock 
+- Cobertura JaCoCo
 
 ## Cómo verificar
+
 ```bash
 mvn clean test
 ```
-
 ## Cobertura
 
+Se obtuvo cobertura superior al 90%.
+Se verificaron reglas de cancelación, descuentos y confirmación.
+
 ## Limitaciones
+
+No se probaron integraciones reales con sistemas externos
 
 ## Autorrevisión
 - [ ] Compila
@@ -29,4 +35,5 @@ mvn clean test
 - [ ] Documentación actualizada
 
 ## Uso de IA
-Indicar herramienta y uso, si corresponde.
+
+Se utilizó Microsoft 365 Copilot como apoyo para revisión técnica, generación de ideas de pruebas y documentación
