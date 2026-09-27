@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.uees.testing.availability.DisponibilidadClient;
+import edu.uees.testing.domain.EstadoReserva;
+import edu.uees.testing.domain.Reserva;
 import edu.uees.testing.notification.Notificador;
 import edu.uees.testing.repository.ReservaRepository;
 
@@ -21,7 +23,6 @@ class ReservaServiceTest {
     void entornoJUnitFunciona() {
         assertTrue(true);
     }
-
 
     private DisponibilidadClient disponibilidad;
     private ReservaRepository repository;
@@ -41,10 +42,9 @@ class ReservaServiceTest {
                 notificador);
     }
 
-
     @Test
     void cincoHorasPermitenCancelar() {
-        assertTrue(service.puedeCancelar(5));   
+        assertTrue(service.puedeCancelar(5));
     }
 
     @Test
@@ -61,4 +61,51 @@ class ReservaServiceTest {
     void ceroHorasNoPermiteCancelar() {
         assertFalse(service.puedeCancelar(0));
     }
+
+    @Test
+    void reservaDisponiblePuedeConfirmarse() {
+
+        Reserva reserva = new Reserva(
+                "R-001",
+                "VIP");
+
+        when(
+                disponibilidad.estaDisponible(reserva)).thenReturn(true);
+
+        service.confirmar(reserva);
+
+        assertEquals(
+                EstadoReserva.CONFIRMADA,
+                reserva.getEstado());
+
+        verify(repository)
+                .guardar(reserva);
+
+        verify(notificador)
+                .enviarConfirmacion(reserva);
+    }
+
+    @Test
+    void reservaNoDisponibleLanzaExcepcion() {
+
+        Reserva reserva = new Reserva(
+                "R-002",
+                "NORMAL");
+
+        when(
+                disponibilidad.estaDisponible(reserva)).thenReturn(false);
+
+        assertThrows(
+                IllegalStateException.class,
+                () -> service.confirmar(reserva));
+    }
+
+    @Test
+    void reservaNulaLanzaExcepcion() {
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> service.confirmar(null));
+    }
+
 }
